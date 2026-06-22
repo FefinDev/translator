@@ -1,39 +1,60 @@
-# 🌐 Translator App (Flask + FastAPI)
+# 🟩 Translator - FastAPI Version
 
-This repository contains two implementations of a Google Translate-like web application:
-
-- 🟦 Flask version
-- 🟩 FastAPI version
-
-Both versions share the same frontend (HTML + CSS) but use different backend frameworks.
-
----
-
-# 📁 Project Structure
-
-translator/
-│
-├── flask/      → Flask implementation
-├── fastapi/    → FastAPI implementation
+Google Translate-like web app built with FastAPI, Jinja2, and deep-translator.
 
 ---
 
 # ⚙️ Features
 
-- 🌍 Multi-language translation using deep-translator
+- 🌍 Translate text between multiple languages
 - 🔁 Swap languages
-- 🧠 Auto language detection
+- 🧠 Auto-detect language
 - 🎨 Google Translate-style UI
-- 📱 Responsive design
 
 ---
 
-# 🚀 Getting Started
+# 📦 Installation
 
-Each version has its own README:
+git clone https://github.com/FefinDev/translator.git  
+cd translator/fastapi  
 
-- Flask → `flask/README.md`
-- FastAPI → `fastapi/README.md`
+pip install -r requirements.txt  
+
+---
+
+# 🚀 Run
+
+Option 1:
+
+python app.py  
+
+Option 2 (recommended):
+
+uvicorn app:app --reload --port 7200  
+
+---
+
+# 🌐 Open in browser
+
+http://localhost:7200  
+
+---
+
+# 📦 Requirements
+
+fastapi  
+uvicorn  
+jinja2  
+python-multipart  
+deep-translator  
+
+---
+
+# 🧠 Notes
+
+- Uses Jinja2 templates
+- Static files mounted manually
+- Better for APIs and scaling
 
 ---
 
