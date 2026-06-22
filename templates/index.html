@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="header">
+    🌐 Translator
+</div>
+
+<div class="container">
+
+    <div class="translator">
+
+        <form method="post">
+
+            <div class="lang-bar">
+
+                <select name="source">
+                    <option value="auto" {% if source=="auto" %}selected{% endif %}>
+                        Detect language
+                    </option>
+
+                    {% for name, code in languages.items() %}
+                    <option value="{{ code }}" {% if source==code %}selected{% endif %}>
+                        {{ name.title() }}
+                    </option>
+                    {% endfor %}
+                </select>
+
+                <button type="button" class="swap-btn" onclick="swapLang()">↔</button>
+
+                <select name="target">
+                    {% for name, code in languages.items() %}
+                    <option value="{{ code }}" {% if target==code %}selected{% endif %}>
+                        {{ name.title() }}
+                    </option>
+                    {% endfor %}
+                </select>
+
+            </div>
+
+            <div class="panels">
+
+                <div class="panel input-panel">
+                    <textarea name="text" placeholder="Enter text...">{{ text }}</textarea>
+                </div>
+
+                <div class="panel">
+                    <div class="translation">
+                        {{ translated }}
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bar">
+                <button type="submit">Translate</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+function swapLang(){
+
+    const source = document.querySelector('select[name="source"]');
+    const target = document.querySelector('select[name="target"]');
+
+    if(source.value === "auto") return;
+
+    const temp = source.value;
+    source.value = target.value;
+    target.value = temp;
+}
+</script>
+
+</body>
+</html>
